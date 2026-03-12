@@ -1,4 +1,4 @@
-name: CI - Spring Boot (Maven)
+name: CI - Spring Boot (Maven, Java 8)
 
 on:
   push:
@@ -16,21 +16,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      # Use Java 8 to match the updated pom.xml (Spring Boot 1.2.x compatible)
+      - name: Set up JDK 8
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17
+          java-version: 8
           cache: maven
 
+      # Build and run tests from the project folder
       - name: Build & Test
         run: mvn -B -ntp clean verify
         working-directory: SmallestSpringApp
 
+      # Optional: create a package without tests (keeps a fast artifact step)
       - name: Package (skip tests)
         run: mvn -B -ntp -DskipTests package
         working-directory: SmallestSpringApp
 
+      # Upload the built JAR so you can download it from the run artifacts
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
         with:
