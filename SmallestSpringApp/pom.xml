@@ -1,30 +1,58 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>orbartal</groupId>
-  <artifactId>example.smallest</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.2.0.RELEASE</version>
-	</parent>
+    <modelVersion>4.0.0</modelVersion>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-	
-	<dependencies>
-	
+    <groupId>example.smallest</groupId>
+    <artifactId>smallest-spring-app</artifactId>
+    <version>1.0.0</version>
+
+    <packaging>jar</packaging>
+
+    <name>Smallest Spring Boot App</name>
+
+    <!-- Spring Boot Parent (adjust version if needed) -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.18</version>
+        <relativePath/>
+    </parent>
+
+    <!-- Java 17 Configuration -->
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- Spring Boot Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-	</dependencies>
+        <!-- Test dependency -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- Spring Boot Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+        </plugins>
+    </build>
+
 </project>
